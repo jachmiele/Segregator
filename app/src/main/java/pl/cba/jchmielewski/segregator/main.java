@@ -42,7 +42,9 @@ public class main extends AppCompatActivity {
 
     //Initialize Class
     private Handler handler = new Handler();
+    private Handler handler2 = new Handler();
     private Timer timer = new Timer();
+    private Timer timer2 = new Timer();
     private SoundPlayer sound;
 
     //Status check
@@ -55,6 +57,7 @@ public class main extends AppCompatActivity {
     private int boxSize;
     private int screenWidth;
     private int screenHeight;
+    private int category;
 
 
     @Override
@@ -64,12 +67,12 @@ public class main extends AppCompatActivity {
 
         sound = new SoundPlayer(this);
 
-        scoreLabel = (TextView) findViewById(R.id.scoreLabel);
-        startLabel = (TextView) findViewById(R.id.startLabel);
-        box = (ImageView) findViewById(R.id.box);
-        cebula = (ImageView) findViewById(R.id.cebula);
-        chleb = (ImageView) findViewById(R.id.chleb);
-        kosc = (ImageView) findViewById(R.id.kosc);
+        scoreLabel = findViewById(R.id.scoreLabel);
+        startLabel = findViewById(R.id.startLabel);
+        box = findViewById(R.id.box);
+        cebula = findViewById(R.id.cebula);
+        chleb = findViewById(R.id.chleb);
+        kosc = findViewById(R.id.kosc);
 
         //Get screen size
         WindowManager wm = getWindowManager();
@@ -97,7 +100,7 @@ public class main extends AppCompatActivity {
        hitCheck();
 
         //Cebula
-        cebulaY += 18;
+        cebulaY += 5;
         if (cebulaY > frameHeight){
             cebulaY = -cebula.getHeight() - 20; //20 za prawa krawedzia ekranu
             cebulaX = (int) Math.floor(Math.random() * (frameWidth - cebula.getWidth()));//[0,1)*wysokosc layoutu
@@ -106,7 +109,7 @@ public class main extends AppCompatActivity {
         cebula.setY(cebulaY);
 
         //Chleb
-        chlebY += 15;
+        chlebY += 5;
         if (chlebY > frameHeight){
             chlebY = -chleb.getHeight() - 20; //20 za prawa krawedzia ekranu
             chlebX = (int) Math.floor(Math.random() * (frameWidth - chleb.getWidth()));//[0,1)*wysokosc layoutu
@@ -115,7 +118,7 @@ public class main extends AppCompatActivity {
         chleb.setY(chlebY);
 
         //Kosc
-        koscY += 20;
+        koscY += 5;
         if (koscY > frameHeight){
             koscY = -kosc.getHeight() - 20; //20 za prawa krawedzia ekranu
             koscX = (int) Math.floor(Math.random() * (frameWidth - kosc.getWidth()));//[0,1)*wysokosc layoutu
@@ -177,27 +180,90 @@ public class main extends AppCompatActivity {
         if ((frameHeight - boxSize) <= koscCenterY && koscCenterY <= frameHeight &&
                 boxX <= koscCenterX && koscCenterX <= boxX + boxSize){
 
-            score -= 1;
             koscY = frameHeight-10;
-
             timer.cancel();
+            timer2.cancel();
             timer = null;
-
+            timer2 = null;
             sound.playOverSound();
+            end();
 
-            Intent intent = new Intent(getApplicationContext(), result.class);
-            intent.putExtra("SCORE", score);
-            startActivity(intent);
+            /*
+            if (category == 0){
+                timer.cancel();
+                timer2.cancel();
+                timer = null;
+                timer2 = null;
+                sound.playOverSound();
+                end();
+            }else{
+                score += 1;
+                sound.playHitSound();
+            }
+            */
         }
 
+    }
+
+    public void end(){
+        Intent intent = new Intent(getApplicationContext(), result.class);
+        intent.putExtra("SCORE", score);
+        startActivity(intent);
+    }
+
+    public void switchCategory(){
+        switch (category){
+            case 0:
+                category = 1;
+                cebula.setImageResource(R.drawable.cebula);
+                chleb.setImageResource(R.drawable.chleb);
+                kosc.setImageResource(R.drawable.kosc);
+                box.setImageResource(R.drawable.bio);
+                break;
+            case 1:
+                category = 2;
+                cebula.setImageResource(R.drawable.cebula);
+                chleb.setImageResource(R.drawable.chleb);
+                kosc.setImageResource(R.drawable.kosc);
+                box.setImageResource(R.drawable.papier);
+
+                break;
+            case 2:
+                category = 3;
+                cebula.setImageResource(R.drawable.cebula);
+                chleb.setImageResource(R.drawable.chleb);
+                kosc.setImageResource(R.drawable.kosc);
+                box.setImageResource(R.drawable.szklo);
+
+                break;
+            case 3:
+                category = 4;
+                cebula.setImageResource(R.drawable.cebula);
+                chleb.setImageResource(R.drawable.chleb);
+                kosc.setImageResource(R.drawable.kosc);
+                box.setImageResource(R.drawable.resztkowe);
+
+                break;
+            case 4:
+                category = 0;
+                cebula.setImageResource(R.drawable.cebula);
+                chleb.setImageResource(R.drawable.chleb);
+                kosc.setImageResource(R.drawable.kosc);
+                box.setImageResource(R.drawable.sztuczne);
+
+                break;
+        }
+        cebulaY = -200;
+        chlebY = -10;
+        koscY = -80;
     }
 
     public boolean onTouchEvent(MotionEvent me){
         if (start_flg == false){
             start_flg = true;
 
-            FrameLayout frame = (FrameLayout) findViewById(R.id.frame);
-            TextView scoreLabel = (TextView) findViewById(R.id.scoreLabel);
+            FrameLayout frame = findViewById(R.id.frame);
+            TextView scoreLabel = findViewById(R.id.scoreLabel);
 
             frameHeight = frame.getHeight();
             frameWidth = frame.getWidth();
@@ -207,6 +273,8 @@ public class main extends AppCompatActivity {
             boxSize = box.getHeight();
 
             startLabel.setVisibility(View.GONE);
+
+            category = 0;
 
             timer.schedule(new TimerTask() {
                 @Override
@@ -218,7 +286,19 @@ public class main extends AppCompatActivity {
                         }
                     });
                 }
-            }, 0,20);
+            }, 0,10);
+
+            timer2.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    handler2.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            switchCategory();
+                        }
+                    });
+                }
+            }, 0,5000);
 
         }else {
             switch (me.getAction()){
