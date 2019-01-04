@@ -9,6 +9,9 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * Okno wyświetla osiągnięty wynik oraz najlepszy wynik
+ */
 public class result extends AppCompatActivity {
 
     @Override
@@ -26,18 +29,21 @@ public class result extends AppCompatActivity {
         int highScore = settings.getInt("HIGH_SCORE", 0);
 
         if (score > highScore){
-            highScoreLabel.setText("High Score : "+ score);
+            highScoreLabel.setText("Najleszy wynik : "+ score);
 
             //save
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt("HIGH_SCORE", score);
             editor.commit();
         }else {
-            highScoreLabel.setText("High score : "+ highScore);
+            highScoreLabel.setText("Najleszy wynik : "+ highScore);
         }
 
     }
 
+    /**
+     * Powrót do Menu
+     */
     public void tryAgain(View view){
         //sprzekierowanie po kliknieciu try again
         startActivity(new Intent(getApplicationContext(), start.class));

@@ -6,6 +6,9 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 
+/**
+ * Odtwarzanie dźwięków
+ */
 public class SoundPlayer {
     private AudioAttributes audioAttributes;
     final int SOUND_POOL_MAX = 2;

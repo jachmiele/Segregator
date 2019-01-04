@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 
+/**
+ * Okno startowe (menu)
+ */
 public class start extends AppCompatActivity {
 
     @Override
@@ -14,8 +17,18 @@ public class start extends AppCompatActivity {
         setContentView(R.layout.activity_start);
     }
 
+    /**
+     * Przejdź do ekranu gry
+     */
     public void startGame(View view){
         startActivity(new Intent(getApplicationContext(), main.class));
+    }
+
+    /**
+     * Przejdź do zasad gry
+     */
+    public void infoGame(View view){
+        startActivity(new Intent(getApplicationContext(), info.class));
     }
 
     // Disable return button

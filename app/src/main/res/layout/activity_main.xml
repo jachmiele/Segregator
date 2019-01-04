@@ -4,17 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/tlo"
     android:orientation="vertical"
     tools:context=".main">
 
     <TextView
         android:id="@+id/scoreLabel"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Score : 300"
-        android:textSize="18sp"
+        android:layout_height="25dp"
+        android:textColor="@color/Dark_green"
+        android:gravity="clip_vertical"
         android:paddingLeft="10dp"
-        android:gravity="clip_vertical"/>
+        android:text="Score : 300"
+        android:textSize="18sp" />
 
     <FrameLayout
         android:id="@+id/frame"
@@ -25,31 +27,42 @@
             android:id="@+id/startLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tap to start"
-            android:textSize="30sp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/Dark_blue"
+            android:paddingTop="20dp"
+            android:text="Dotknij aby rozpocząć"
+            android:textSize="30sp" />
 
         <ImageView
             android:id="@+id/box"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/kosz"
-            android:layout_gravity="bottom"/>
+            android:layout_width="97dp"
+            android:layout_height="140dp"
+            android:layout_gravity="bottom|center"
+            android:cropToPadding="true"
+            android:paddingBottom="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bio" />
+
         <ImageView
-            android:id="@+id/cebula"
+            android:id="@+id/drop1"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/cebula"/>
+            android:src="@drawable/cebula"
+            android:translationY="-100dp" />
+
         <ImageView
-            android:id="@+id/chleb"
+            android:id="@+id/drop2"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/chleb"/>
+            android:src="@drawable/chleb"
+            android:translationY="-100dp" />
+
         <ImageView
-            android:id="@+id/kosc"
+            android:id="@+id/drop3"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/kosc"/>
+            android:src="@drawable/kosc"
+            android:translationY="-100dp" />
     </FrameLayout>
 
 </LinearLayout>

@@ -5,42 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".start"
+    android:background="@color/Soft_brown"
     android:orientation="vertical"
     android:gravity="center">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/Dark_green"
         android:text="Segregator"
-        android:textSize="32sp" />
-
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp">
-
-        // miejsce na info o grze
-        <TableRow
-            android:gravity="center_vertical">
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/kosz"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="30 point"
-                android:textSize="18sp"
-                android:paddingLeft="10dp"/>
-        </TableRow>
-
-    </TableLayout>
+        android:textSize="50dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="START"
+        android:text="Zasady"
+        android:textColor="@color/Light_green"
         android:layout_marginTop="60dp"
+        android:onClick="infoGame"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:textColor="#551545"
+        android:text="START"
+        android:textSize="60dp"
+        android:layout_marginTop="150dp"
         android:onClick="startGame"/>
 
 </LinearLayout>

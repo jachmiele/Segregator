@@ -5,36 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/Soft_brown"
     android:gravity="center"
     tools:context=".result">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GAME OVER"
-        android:textSize="30sp"/>
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/Dark_green"
+        android:text="Gra\nZakończona"
+        android:textSize="40dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Dark_blue"
+        android:text="Twój wynik:"
+        android:textSize="30dp"
+        android:layout_marginTop="80dp"/>
 
     <TextView
         android:id="@+id/scoreLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/Light_blue"
         android:text="150"
-        android:textSize="40sp"
-        android:layout_marginTop="80dp"/>
+        android:textSize="40dp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/highScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="High Score: 300"
-        android:textSize="20sp"
-        android:layout_marginTop="80dp"/>
+        android:textColor="@color/Light_green"
+        android:text="Najleszy wynik: 300"
+        android:textSize="15dp"
+        android:layout_marginTop="30dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Try again"
+        android:text="Spróbuj ponownie"
         android:textAllCaps="false"
         android:onClick="tryAgain"/>
 
