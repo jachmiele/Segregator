@@ -1,7 +1,7 @@
 # Segregator
 Projekt z przedmiotu JPWP
 <a href="https://www.youtube.com/embed/9_P_Kd0omrw
-" target="_blank"><img src="https://youtu.be/9_P_Kd0omrw/0.jpg" 
+" target="_blank"><img src="https://img.youtube.com/vi/9_P_Kd0omrw/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ### Dodano:
