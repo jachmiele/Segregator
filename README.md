@@ -1,5 +1,6 @@
 # Segregator
 Projekt z przedmiotu JPWP
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9_P_Kd0omrw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Dodano:
 + Grafiki dla pozostałych kategori śmietnika oraz śmieci
