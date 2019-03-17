@@ -1,10 +1,11 @@
-# Segregator
-## Projekt z przedmiotu JPWP
+# Segregator - Projekt z przedmiotu JPWP
 ### Temat projektu
 Zręcznościowo-edukacyjna gra “Segregator”.
 
+
 ### Technologia wykonania
 Java Android
+
 
 ### Cele
 Stworzenie gry która poprzez zręcznościową rozgrywkę nauczy użytkownika
@@ -12,6 +13,7 @@ prawidłowej segregacji śmieci (zgodnie z rozporządzeniem Ministra Środowiska
 dnia 29 grudnia 2016 r.).
 Promowanie dbania o środowisko wśród dzieci i dorosłych. Wyrobienie nawyków
 wyrzucania odpadów do właściwych pojemników.
+
 
 ### Wymagania funkcjonalne
 - [x] poruszające się obiekty należy łapać do kosza
