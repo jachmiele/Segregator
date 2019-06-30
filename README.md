@@ -1,5 +1,4 @@
-# Segregator
-Projekt z przedmiotu JPWP
+# Segregato
 
 Zobacz wideo:
 <a href="https://www.youtube.com/embed/9_P_Kd0omrw" target="_blank"><img src="https://img.youtube.com/vi/9_P_Kd0omrw/3.jpg" 
