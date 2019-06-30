@@ -1,4 +1,4 @@
-# Segregator - Projekt z przedmiotu JPWP
+# Segregator - Projekt gry
 ### Temat projektu
 Zręcznościowo-edukacyjna gra “Segregator”.
 
